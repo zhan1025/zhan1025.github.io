@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+   <!-- Import APlayer.js -->
+ 
+
+  
+  
+    <meta name="keywords" content="vue, js, zhan, react">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    vuex |
+    
+    Open Your Eyes</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<!-- Import APlayer -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<!-- Import meting.js -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<body>
+
+<main class="content">
+  <section class="outer">
+  <article id="post-vue进阶vuex" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vuex
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/06/05/vue进阶vuex/" class="article-date">
+  <time datetime="2019-06-05T12:20:01.000Z" itemprop="datePublished">2019-06-05</time>
+</a>
+
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <img src="/images/vuex.jpg" itemprop="image">
+        
+      
+    </div>
+  </div>
+
+
+      
+        <h2 id="vuex-状态管理器"><a href="#vuex-状态管理器" class="headerlink" title="vuex ?   状态管理器"></a>vuex ?   状态管理器</h2><a id="more"></a>
+
+<blockquote>
+<p>Fulx 架构就像眼睛： 您自会知道什么时候用它</p>
+</blockquote>
+<ul>
+<li>核心  store(仓库)<ul>
+<li>state ： 状态  （类似组件中的data）</li>
+<li>getters ：对 state的派生，可以理解为store的 <strong>*计算属性 *</strong></li>
+<li>mutations ：修改state的<strong><em>唯一</em></strong>操作就是提交mutation</li>
+<li>actions ： 类似于mutation  ；主要用来处理异步操作</li>
+<li>modules ： 对仓库分割成模块</li>
+</ul>
+</li>
+<li>辅助函数， 组件从仓库那东西的时候，使用辅助函数更方便<ul>
+<li>mapState（） ： state的辅助函数</li>
+<li>mapGetters（）：getters的辅助函数</li>
+<li>mapMutations（） ：mutations的辅助函数</li>
+<li>mapActions（） ：actions的辅助函数</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么时候需要使用-vuex"><a href="#什么时候需要使用-vuex" class="headerlink" title="什么时候需要使用 vuex"></a>什么时候需要使用 vuex</h3><ol>
+<li><p>当你不知道该不该用的时候，那就是不该用。（你自会知道什么时候需要用到它）</p>
+</li>
+<li><p>组件之间通信很复杂的情况下</p>
+</li>
+<li><p>项目中使用了路由，并且路由页面组件中需要通信的时候，</p>
+</li>
+<li><p>项目写着写着头发一大把掉的时候。 </p>
+</li>
+</ol>
+<h3 id="vuex的操作流程"><a href="#vuex的操作流程" class="headerlink" title="vuex的操作流程"></a>vuex的操作流程</h3><ol>
+<li><p>先要有仓库，将我们项目中组件上需要共享的数据放置到我们 仓库中 state 的位置。</p>
+</li>
+<li><p>组件要使用 仓库 中 state 的数据，就从仓库里面拿出来用。</p>
+</li>
+<li><p>要修改仓库中 state 的数据，</p>
+<ol>
+<li><p>commit(提交) mutation</p>
+</li>
+<li><p>dispath(派发) action    -&gt; commit mutation</p>
+</li>
+</ol>
+</li>
+<li><p>然后仓库中 state 数据发生变化，组件就会得到更新</p>
+</li>
+</ol>
+<p>![流程][‘images/a.jpg’]</p>
+<h3 id="vuex-的使用"><a href="#vuex-的使用" class="headerlink" title="vuex 的使用"></a>vuex 的使用</h3><ol>
+<li><p>安装 vuex <code>npm install --save vuex</code></p>
+</li>
+<li><p>项目中 src/store/index.js 文件中创建仓库的实例对象</p>
+</li>
+<li><p>要 main.js new Vue 的地方配置一个 store 的选项。选项的值就是 2 中 仓库实例对象</p>
+</li>
+</ol>
+<h3 id="如何将仓库中的数据拿到组件中去使用"><a href="#如何将仓库中的数据拿到组件中去使用" class="headerlink" title="如何将仓库中的数据拿到组件中去使用"></a>如何将仓库中的数据拿到组件中去使用</h3><p>this.$store 就是仓库的实例对象(就像使用了vue-router，会在vue实例上会挂载$router $route)</p>
+<ol>
+<li>直接使用 this.$store 的方式在组件 template 模板中使用 （不推荐）</li>
+</ol>
+<p>组件中使用 计算属性 去拿 仓库的数据</p>
+   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">​    computed: &#123;  title () &#123; <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.title &#125;  &#125;</span><br><span class="line"><span class="comment">//也可以是</span></span><br><span class="line"><span class="keyword">import</span> &#123; mapState  &#125; <span class="keyword">from</span> ‘vuex’</span><br><span class="line">computed: mapState（[<span class="string">'title'</span>]）</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">computed:</span><br><span class="line">mapState (&#123;  <span class="attr">pageTitle</span>: <span class="function"><span class="params">state</span> =&gt;</span> state.title </span><br><span class="line"><span class="comment">//pageTitle (state) &#123; return satte.title&#125;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>借助 vuex 提供的辅助函数 mapState</li>
+</ol>
+<p>mapState([])  - 组件的computed 的 key 必须要跟仓库中 state 里面某个key 相同</p>
+<p>mapState({})  - 组件的computed 的 key 可以自定义。</p>
+<ol start="4">
+<li>将 mapState 与 组件自身的 computed 结合 （推荐）</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">computed: &#123;</span><br><span class="line"></span><br><span class="line">  ...mapState([<span class="string">'title'</span>]),</span><br><span class="line"></span><br><span class="line">  firstName () &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> <span class="keyword">this</span>.name.split(<span class="string">''</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何修改仓库中的数据"><a href="#如何修改仓库中的数据" class="headerlink" title="如何修改仓库中的数据"></a>如何修改仓库中的数据</h3><ol>
+<li><p>先需要在仓库中定义我们的mutation</p>
+</li>
+<li><p>在组件中提交这个mutaion</p>
+<ol>
+<li><p>this.$store.commit(‘mutaion的名字’, 要传递的参数)</p>
+</li>
+<li><p>this.$store.commit({</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>​     type: mutaion的名字,</p>
+<p>​     其余的参数</p>
+<p>   })</p>
+<ol start="3">
+<li>mapMutations 辅助函数</li>
+</ol>
+<p><strong><em>mutation不允许异步代码的</em></strong></p>
+<h3 id="如何写异步代码在仓库中-actions"><a href="#如何写异步代码在仓库中-actions" class="headerlink" title="如何写异步代码在仓库中 actions"></a>如何写异步代码在仓库中 actions</h3><p>Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 <code>context.commit</code> 提交一个 mutation，或者通过 <code>context.state</code> 和 <code>context.getters</code> 来获取 state 和 getters</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    increment (context) &#123;</span><br><span class="line">      context.commit(<span class="string">'increment'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>每一个action里面都可以写异步代码，但是action并不能修改state中的数据，真正修改数据的还是 mutaction</p>
+</li>
+<li><p>在组件中如何派发这个action</p>
+<ol>
+<li><p>this.$store.dispatch(‘action的名字’)</p>
+</li>
+<li><p>mapActions 辅助函数</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    ...mapActions([</span><br><span class="line">      <span class="string">'increment'</span>, <span class="comment">// 将 `this.increment()` 映射为 `this.$store.dispatch('increment')`</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// `mapActions` 也支持载荷：</span></span><br><span class="line">      <span class="string">'incrementBy'</span> <span class="comment">// 将 `this.incrementBy(amount)` 映射为 `this.$store.dispatch('incrementBy', amount)`</span></span><br><span class="line">    ]),</span><br><span class="line">    ...mapActions(&#123;</span><br><span class="line">      add: <span class="string">'increment'</span> <span class="comment">// 将 `this.add()` 映射为 `this.$store.dispatch('increment')`</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.6</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhan1025.github.io/2019/06/05/vue进阶vuex/" data-id="cjx1c88py000dosvdnzv1sl9r" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/核心/">核心</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进阶/">进阶</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/06/09/Deep-Shallow-cloning/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Deep&amp;Shallow cloning
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/06/05/路由懒加载与组件复用问题/" class="article-nav-link">
+        <strong class="article-nav-caption">Old posts</strong>
+        <div class="article-nav-title">路由懒加载与组件复用问题</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '9eaf0846b3c1cf65273a',
+      clientSecret: '9414cb0e9167f67fc5276d1e51a1140139891847',
+      repo: 'talk',
+      owner: 'zhan1025',
+      admin: ['zhan1025'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+  6 min. read
+</section>
+
+  <footer class="footer">
+  
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i>
+      <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+    </li>
+  
+</ul>
+
+
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+      </script>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Open Your Eyes</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
+    </ul>
+  </div>
+</footer>
+
+</main>
+<!-- <div class="page-type-title" style="display:flex;justify-content:center; flex:1 1 auto; position:fixed;bottom:0;left:0;z-index:99;">
+  <iframe  class="music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=313 height=301 src="//music.163.com/outchain/player?type=0&id=2843805639&auto=1&height=430"></iframe>775701065
+</div> -->
+
+
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+      <li class="nav-item">
+          <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+      </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+      <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="120" height="300" id="resCanvas" style="width:100%">
+          <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/核心/" style="font-size: 15px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+        </canvas>
+      </div>
+    </div>
+  
+</aside>
+<!-- <div id="aplayer"></div> -->
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+<div
+     class="aplayer"
+     data-fixed="true"
+     data-id="490697747"
+     data-server="netease"
+     data-type="playlist"
+     data-order="random"
+     data-autoplay="true"
+     data-mutex="true"
+     data-loop="all"
+     data-list-folded="false"
+     data-volume="0.7"
+     fixed="true"
+     data-listmaxheight="240px"
+     data-theme="#FF4081">
+</div>
+</body>
+</html>

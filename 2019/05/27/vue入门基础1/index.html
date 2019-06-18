@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+   <!-- Import APlayer.js -->
+ 
+
+  
+  
+    <meta name="keywords" content="vue, js, zhan, react">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    vue入门基础1 |
+    
+    Open Your Eyes</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<!-- Import APlayer -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<!-- Import meting.js -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<body>
+
+<main class="content">
+  <section class="outer">
+  <article id="post-vue入门基础1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue入门基础1
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/05/27/vue入门基础1/" class="article-date">
+  <time datetime="2019-05-27T06:51:29.000Z" itemprop="datePublished">2019-05-27</time>
+</a>
+
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <blockquote>
+<p>vue使用是MVVM模式</p>
+</blockquote>
+<h3 id="基本指令-（前提是已安装vue或以将vue-js文件引入，详细操作见官方文档-https-cn-vuejs-org-v2-guide-E8-B5-B7-E6-AD-A5-）"><a href="#基本指令-（前提是已安装vue或以将vue-js文件引入，详细操作见官方文档-https-cn-vuejs-org-v2-guide-E8-B5-B7-E6-AD-A5-）" class="headerlink" title="基本指令 （前提是已安装vue或以将vue.js文件引入，详细操作见官方文档:(https://cn.vuejs.org/v2/guide/#%E8%B5%B7%E6%AD%A5)）"></a>基本指令 （前提是已安装vue或以将vue.js文件引入，详细操作见官方文档:(<a href="https://cn.vuejs.org/v2/guide/#%E8%B5%B7%E6%AD%A5)）" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/#%E8%B5%B7%E6%AD%A5)）</a></h3><ul>
+<li>插值(在文本域插值只能用v-model)<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- （可先跳过这段文字）这里只是给vue提供的挂载点，也就是vue.js将会通过el: '.app' （如果是id，就是el :'#类名'） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span> &#123;&#123;message&#125;&#125;&#123;&#123;tip&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通过双花括号将数据带入，也可以带入一个单表达式 （这是一种模板语法）--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<a id="more"></a>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el : <span class="string">'.app'</span>,<span class="comment">//vue只会操作或管理该节点内的节点（el===element）</span></span><br><span class="line">    data :&#123;<span class="comment">//需要渲染的数据</span></span><br><span class="line">        message : <span class="string">'hello vue'</span>,</span><br><span class="line">        tip: <span class="string">'名字随便写'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// method: &#123;&#125;,</span></span><br><span class="line">    <span class="comment">// computed:&#123;&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以通过app.$mount('.app')添加挂载</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><em>下面的演示会解释的简单些，请理解以上插值的过程，再阅读一下文字</em></strong></p>
+</blockquote>
+<!--more-->
+
+<ul>
+<li><p>v-if &amp; v-else &amp; v-else-if &amp; v-show</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-if</span>=<span class="string">'height&gt;200'</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-else</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>v-if和v-else要相邻使用，如果中间有其他原素是达不到想要的效果的</p>
+</blockquote>
+<pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            message:<span class="string">'hello'</span>,</span><br><span class="line">            height:<span class="number">155</span></span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;)</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;p v-<span class="keyword">if</span>=<span class="string">'height&gt;100'</span>&gt;&#123;&#123;message&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p v-else-if='height&gt;160'&gt;你好&lt;/</span>p&gt;</span><br><span class="line">        &lt;p v-<span class="keyword">else</span>&gt;简单理解一下&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p v-show='height&gt;=155'&gt;在控制台查看通过v-if被隐藏的标签和v-show的区别&lt;/</span>p&gt;</span><br><span class="line">        &lt;p v-show=<span class="string">'height&lt;155'</span>&gt;隐藏&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//js代码</span></span><br><span class="line">    <span class="keyword">var</span> app= <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            data: &#123;</span><br><span class="line">                message: <span class="string">'hello'</span>,</span><br><span class="line">                height: <span class="number">155</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">        app.$mount(<span class="string">'#app'</span>);<span class="comment">//通过vm.$mount('类名'),可以给vue添加挂载</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>v-if 与 v-show 的区别<br>v-if判断结果为false会让原素变为html注释，而v-show则是给原素添加display属性<br>      1. 他们都能实现元素的显示隐藏<br>      2. v-show只是简单控制元素的display属性（不管条件为真还是为假，这个元素都会被渲染出来），而v-if才是条件渲染（条件为真，元素将会被渲染，条件为假，元素会被销毁）<br>      3. v-show有更高的首次渲染开销。v-if的首次渲染开销要小得多。<br>      4. v-if有更高的切换开销，v-show切换开销小<br>      5. v-if有配套的 v-else-if 和 v-else，而v-show没有</p>
+<blockquote>
+<p>v-once数据渲染一次，数据改变时，加了v-once的原素数据，保持第一次渲染的数据</p>
+</blockquote>
+<ul>
+<li><p>v-text；v-html向html页面输出html元素(不推荐使用该方法，会带来xss攻击隐患)</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;button&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>//直接输出的是字符串</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-html</span>=<span class="string">'button'</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-text</span>=<span class="string">'msg'</span>&gt;</span>你猜<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el:<span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        msg: <span class="string">'v-text注入信息，会将原标签内的数据给覆盖显示，使用了v-text/v-html，再在标签内写直接书写数据是不显示的'</span></span><br><span class="line">        button:<span class="string">'&lt;button&gt;按钮&lt;/button&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-bind属性、样式、类的绑定…,v-on绑定事件</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">v-bind简写 ‘：’</span><br><span class="line">v-on简写‘@’</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:title</span>=<span class="string">'msg'</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; color: activeColor&#125;"</span>&gt;</span>121212<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">:class</span>=<span class="string">"&#123; box1 : isOk &#125;"</span>&gt;</span>11111<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:</span>[<span class="attr">attrname</span>]=<span class="string">'msg'</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 动态属性绑定 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">:class</span>=<span class="string">'active'</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click</span>=<span class="string">'reverse()'</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isOk:<span class="literal">true</span>,</span><br><span class="line">            msg:<span class="string">'按钮'</span>,</span><br><span class="line">            activeColor:<span class="string">'red'</span>,</span><br><span class="line">            attrname:<span class="string">'title'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        method:&#123;</span><br><span class="line">            reverse()&#123;</span><br><span class="line">                <span class="keyword">this</span>.msg=<span class="keyword">this</span>.msg.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-model双向绑定</p>
+<blockquote>
+<p>v-model绑定的数据改变，会实时刷新</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">v-bind:title</span>=<span class="string">'msg'</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">v-model.number</span>=<span class="string">'msg'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">v-model.trim</span>=<span class="string">'msg'</span>&gt;</span><span class="comment">&lt;!--去除用户输入的前后的空格--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">v-model.lazy</span>=<span class="string">'msg'</span>&gt;</span><span class="comment">&lt;!--model是实时更新数据的，加了lazy修饰符，就会在失去焦点时才写入数据--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如果输入的值类型与修饰符的类型不同v-model.number这个number，vue会使用第一次输入值的类型，后续输入的会住哪换成该类型显示，转换不了就会抛弃 --&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">'#app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            msg:<span class="string">'按钮'</span>,</span><br><span class="line">            activeColor:<span class="string">'red'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        method:&#123;</span><br><span class="line">            reverse()&#123;</span><br><span class="line">                <span class="keyword">this</span>.msg=<span class="keyword">this</span>.msg.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-for循环</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">'(item,index) in num'</span> <span class="attr">:key</span>=<span class="string">'index'</span>&gt;</span> &#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 1. 如果在v-for的时候没有给循环的每一项设置一个唯一的标识符的话，那么后续这个数据发生变化，页面重新渲染，是完全的将之前的列表项给删掉然后重新渲染的。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">2. 如果给了唯一的标识的话，那么没有变化的，可以直接复用上。让性能更高效。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">我们需要确保的就是：</span></span><br><span class="line"><span class="comment">每次 v-for 循环都需要给每一个循环项目加上唯一的标识，使用 v-bind:key=""</span></span><br><span class="line"><span class="comment">最好不要使用下标来做唯一标示。使用数据中的唯一的属性。 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">'(value,key,index) in obj'</span>&gt;</span> &#123;&#123;value&#125;&#125;&#123;&#123;key&#125;&#125;&#123;&#123;index&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-for</span>=<span class="string">'i in 10'</span>&gt;</span> &#123;&#123;i&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 十次循环 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//可循环遍历对象，数组，字符串...</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el:<span class="string">'.app'</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            msg:<span class="string">'一段文字'</span>,</span><br><span class="line">            num:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">            obj:&#123;<span class="attr">name</span>:<span class="string">'lili'</span>,<span class="attr">age</span>:<span class="number">15</span>,<span class="attr">sex</span>:<span class="string">'男'</span>&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>其实vue中的数据绑定原理是这样的   <strong><em>⬇</em></strong></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> boxEl = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es5 </span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(boxEl, <span class="string">'name'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function () &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'你要取值了'</span>);</span><br><span class="line">    <span class="keyword">return</span> boxEl.innerHTML;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'你要设置内容了'</span>);</span><br><span class="line">    boxEl.innerHTML = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// boxEl.name//获取数据，进入的是get方法</span></span><br><span class="line"><span class="comment">// boxEl.name = '123123'//设置数据，进入set方法</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解决浏览器渲染的跳动：给元素添加 v-cloak属性，再添加样式[v-cloak]{display:none},这样在浏览器渲染完成前，原始的在html中的数据是不会显示的</p>
+</blockquote>
+<h2 id="数据监测"><a href="#数据监测" class="headerlink" title="数据监测"></a>数据监测</h2><p>####<br>    数组：<br>    使用一些变异方法或者直接替换数组都能引起页面的更新。</p>
+<pre><code>但是以下两个操作不会：
+  1. 直接根据数据下标来修改     vm.list[0] = 9;
+  2. 直接修改数据的长度         vm.list.length = 10;
+
+解决方式：
+
+  1. 使用 Vue.set 原型方法
+  2. 使用 vm.$set 实例方法
+
+  Vue.set(target, index, value);
+  vm.$set(target, index, value);
+
+
+对象
+
+Vue 不能检测对象属性的添加或删除：
+
+Vue.set(target, key, value);
+vm.$set(target, key, value);</code></pre><blockquote>
+<p>如看完这些还不是很了解，请看 (<a href="https://zhan1025.github.io/2019/05/28/vue入门基础1，助解原码/">https://zhan1025.github.io/2019/05/28/vue入门基础1，助解原码/</a>)</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhan1025.github.io/2019/05/27/vue入门基础1/" data-id="cjx1c88pt0009osvd5pt24vwl" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/05/28/vue入门基础2/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            vue入门基础2
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/05/17/gallery/" class="article-nav-link">
+        <strong class="article-nav-caption">Old posts</strong>
+        <div class="article-nav-title">gallery</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '9eaf0846b3c1cf65273a',
+      clientSecret: '9414cb0e9167f67fc5276d1e51a1140139891847',
+      repo: 'talk',
+      owner: 'zhan1025',
+      admin: ['zhan1025'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+  11 min. read
+</section>
+
+  <footer class="footer">
+  
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i>
+      <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+    </li>
+  
+</ul>
+
+
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+      </script>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Open Your Eyes</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
+    </ul>
+  </div>
+</footer>
+
+</main>
+<!-- <div class="page-type-title" style="display:flex;justify-content:center; flex:1 1 auto; position:fixed;bottom:0;left:0;z-index:99;">
+  <iframe  class="music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=313 height=301 src="//music.163.com/outchain/player?type=0&id=2843805639&auto=1&height=430"></iframe>775701065
+</div> -->
+
+
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+      <li class="nav-item">
+          <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+      </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+      <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="120" height="300" id="resCanvas" style="width:100%">
+          <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/核心/" style="font-size: 15px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+        </canvas>
+      </div>
+    </div>
+  
+</aside>
+<!-- <div id="aplayer"></div> -->
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+<div
+     class="aplayer"
+     data-fixed="true"
+     data-id="490697747"
+     data-server="netease"
+     data-type="playlist"
+     data-order="random"
+     data-autoplay="true"
+     data-mutex="true"
+     data-loop="all"
+     data-list-folded="false"
+     data-volume="0.7"
+     fixed="true"
+     data-listmaxheight="240px"
+     data-theme="#FF4081">
+</div>
+</body>
+</html>

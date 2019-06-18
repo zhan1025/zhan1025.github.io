@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+   <!-- Import APlayer.js -->
+ 
+
+  
+  
+    <meta name="keywords" content="vue, js, zhan, react">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Deep&amp;Shallow cloning |
+    
+    Open Your Eyes</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<!-- Import APlayer -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<!-- Import meting.js -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<body>
+
+<main class="content">
+  <section class="outer">
+  <article id="post-Deep-Shallow-cloning" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deep&amp;Shallow cloning
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/06/09/Deep-Shallow-cloning/" class="article-date">
+  <time datetime="2019-06-09T13:11:43.000Z" itemprop="datePublished">2019-06-09</time>
+</a>
+
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <blockquote>
+<p>首先在js中数据类型分为两种，基础数据类型和引用数据类型<br>JavaScript原始类型:Undefined、Null、Boolean、Number、String、Symbol<br>JavaScript引用类型:Object</p>
+</blockquote>
+<h2 id="1-浅克隆"><a href="#1-浅克隆" class="headerlink" title="1.浅克隆"></a>1.浅克隆</h2><pre><code>浅克隆之所以叫浅克隆，是因为对象只会被克隆最外面一层，至于对象内的对象还是通过引用指向同一块内存</code></pre><h2 id="2-个人理解：深拷贝，为解决对象（引用类型），复制时新旧对象使用同一块内存"><a href="#2-个人理解：深拷贝，为解决对象（引用类型），复制时新旧对象使用同一块内存" class="headerlink" title="2.个人理解：深拷贝，为解决对象（引用类型），复制时新旧对象使用同一块内存"></a>2.个人理解：深拷贝，为解决对象（引用类型），复制时新旧对象使用同一块内存</h2><a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本类型的复制，传的是值，</span></span><br><span class="line"><span class="keyword">var</span> obj=&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">c</span>:<span class="number">3</span>,<span class="attr">d</span>:&#123;<span class="attr">e</span>:<span class="number">5</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var obj1=obj;</span></span><br><span class="line"><span class="comment">// obj.a=2;</span></span><br><span class="line"><span class="comment">// console.log(obj==obj1);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//浅拷贝</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function qian(obj)&#123;</span></span><br><span class="line"><span class="comment">//      var newobj=&#123;&#125;;</span></span><br><span class="line"><span class="comment">//      for( k in obj)&#123;</span></span><br><span class="line"><span class="comment">//           newobj[k]=obj[k];</span></span><br><span class="line"><span class="comment">//      &#125;</span></span><br><span class="line"><span class="comment">//      return newobj;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// var obj1=qian(obj);</span></span><br><span class="line"><span class="comment">// obj1.d.e=6;</span></span><br><span class="line"><span class="comment">// console.log(obj);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//深拷贝</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deep</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> newobj=&#123;&#125;;</span><br><span class="line">     <span class="keyword">for</span>( k <span class="keyword">in</span> obj)&#123;</span><br><span class="line">     <span class="comment">//对遍历到的元素，进行类型判断</span></span><br><span class="line">         <span class="keyword">if</span>(<span class="keyword">typeof</span> obj[k]==<span class="string">"object"</span>)&#123;</span><br><span class="line">         <span class="comment">//对object类型的原素再次遍历判断</span></span><br><span class="line">         newobj[k]=deep(obj[k]);</span><br><span class="line">         &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">         <span class="comment">//基本类型直接拷贝</span></span><br><span class="line">         newobj[k]=obj[k];</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> newobj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1=deep(obj);</span><br><span class="line">obj1.d.e=<span class="number">6</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj1==obj);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// jquery 有提供一个$.extend可以用来做 Deep Copy。</span></span><br><span class="line">        <span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'jquery'</span>);</span><br><span class="line">        <span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">            b: &#123; <span class="attr">f</span>: &#123; <span class="attr">g</span>: <span class="number">1</span> &#125; &#125;,</span><br><span class="line">            c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">var</span> obj2 = $.extend(<span class="literal">true</span>, &#123;&#125;, obj1);</span><br><span class="line">        <span class="built_in">console</span>.log(obj1.b.f === obj2.b.f);</span><br><span class="line">        <span class="comment">// false</span></span><br><span class="line">        </span><br><span class="line"> <span class="comment">// 函数库lodash，有提供_.cloneDeep用来做 Deep Copy。</span></span><br><span class="line">        <span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'lodash'</span>);</span><br><span class="line">        <span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">            a: <span class="number">1</span>,</span><br><span class="line">            b: &#123; <span class="attr">f</span>: &#123; <span class="attr">g</span>: <span class="number">1</span> &#125; &#125;,</span><br><span class="line">            c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">var</span> obj2 = _.cloneDeep(obj1);</span><br><span class="line">        <span class="built_in">console</span>.log(obj1.b.f === obj2.b.f);</span><br><span class="line">        <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="下面的文字，鉴于掘金"><a href="#下面的文字，鉴于掘金" class="headerlink" title="下面的文字，鉴于掘金"></a>下面的文字，鉴于掘金</h2><p>当然也有传闻中的，序列/反序列（JSON对象parse方法可以将JSON字符串反序列化成JS对象，stringify方法可以将JS对象序列化成JSON字符串,这两个方法结合起来就能产生一个便捷的深克隆.）<br>要想实现一个靠谱的深克隆方法,上一节提到的序列/反序列是不可能的</p>
+<blockquote>
+<p>它存在这些坑<br>1.他无法实现对函数 、RegExp等特殊对象的克隆<br>2.会抛弃对象的constructor,所有的构造函数会指向Object<br>3.对象有循环引用,会报错</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">pname</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = pname;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Messi = <span class="keyword">new</span> person(<span class="string">'Messi'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> oldObj = &#123;</span><br><span class="line">  a: say,</span><br><span class="line">  b: <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>),</span><br><span class="line">  c: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'ab+c'</span>, <span class="string">'i'</span>),</span><br><span class="line">  d: Messi</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 无法复制函数</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.a, oldObj.a); <span class="comment">// undefined [Function: say]</span></span><br><span class="line"><span class="comment">// 稀疏数组复制错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.b[<span class="number">0</span>], oldObj.b[<span class="number">0</span>]); <span class="comment">// null undefined</span></span><br><span class="line"><span class="comment">// 无法复制正则对象</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.c, oldObj.c); <span class="comment">// &#123;&#125; /ab+c/i</span></span><br><span class="line"><span class="comment">// 构造函数指向错误</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.d.constructor, oldObj.d.constructor); <span class="comment">// [Function: Object] [Function: person]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldObj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">oldObj.a = oldObj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj));</span><br><span class="line"><span class="built_in">console</span>.log(newObj.a, oldObj.a); <span class="comment">// TypeError: Converting circular structure to JSON</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果，第一段代码都无法看懂，那推荐看更高深的解读<br>掘金大佬：寻找海蓝96 <a href="https://juejin.im/post/5abb55ee6fb9a028e33b7e0a" target="_blank" rel="noopener">https://juejin.im/post/5abb55ee6fb9a028e33b7e0a</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhan1025.github.io/2019/06/09/Deep-Shallow-cloning/" data-id="cjx1c88pa0000osvd33uvi6eb" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深浅克隆/">深浅克隆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深浅拷贝/">深浅拷贝</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/06/10/跨域解决-vue/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            跨域解决-vue
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/06/05/vue进阶vuex/" class="article-nav-link">
+        <strong class="article-nav-caption">Old posts</strong>
+        <div class="article-nav-title">vuex</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '9eaf0846b3c1cf65273a',
+      clientSecret: '9414cb0e9167f67fc5276d1e51a1140139891847',
+      repo: 'talk',
+      owner: 'zhan1025',
+      admin: ['zhan1025'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+  5 min. read
+</section>
+
+  <footer class="footer">
+  
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i>
+      <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+        </span>
+    </li>
+  
+</ul>
+
+
+      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+      </script>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Open Your Eyes</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
+    </ul>
+  </div>
+</footer>
+
+</main>
+<!-- <div class="page-type-title" style="display:flex;justify-content:center; flex:1 1 auto; position:fixed;bottom:0;left:0;z-index:99;">
+  <iframe  class="music" frameborder="no" border="0" marginwidth="0" marginheight="0" width=313 height=301 src="//music.163.com/outchain/player?type=0&id=2843805639&auto=1&height=430"></iframe>775701065
+</div> -->
+
+
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+      <li class="nav-item">
+          <div class="totop" id="totop">
+    <i class="fe fe-rocket"></i>
+</div>
+      </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+
+  
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+      <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="120" height="300" id="resCanvas" style="width:100%">
+          <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/核心/" style="font-size: 15px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+        </canvas>
+      </div>
+    </div>
+  
+</aside>
+<!-- <div id="aplayer"></div> -->
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+<div
+     class="aplayer"
+     data-fixed="true"
+     data-id="490697747"
+     data-server="netease"
+     data-type="playlist"
+     data-order="random"
+     data-autoplay="true"
+     data-mutex="true"
+     data-loop="all"
+     data-list-folded="false"
+     data-volume="0.7"
+     fixed="true"
+     data-listmaxheight="240px"
+     data-theme="#FF4081">
+</div>
+</body>
+</html>
