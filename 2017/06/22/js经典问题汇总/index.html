@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hello World |
+    js经典问题汇总（持续更新...） |
     
     Open Your Eyes</title>
   
@@ -35,7 +35,7 @@
 
 <main class="content">
   <section class="outer">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-js经典问题汇总" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -43,7 +43,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      js经典问题汇总（持续更新...）
     </h1>
   
 
@@ -52,8 +52,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/05/17/hello-world/" class="article-date">
-  <time datetime="2019-05-17T09:35:03.837Z" itemprop="datePublished">2019-05-17</time>
+        <a href="/2017/06/22/js经典问题汇总/" class="article-date">
+  <time datetime="2017-06-22T02:00:32.000Z" itemprop="datePublished">2017-06-22</time>
 </a>
 
         
@@ -66,25 +66,15 @@
       
 
       
-        <h1 id="How-to-quick-create-hexo-blog"><a href="#How-to-quick-create-hexo-blog" class="headerlink" title="How to quick create hexo blog"></a>How to quick create hexo blog</h1><a id="more"></a>
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>捡空余时间，写点笔记</p>
+<p>1.描述一下cookies、sessionStorage和loaclStorage区别<br>    - sessionStorage用于本地存储一个会话的数据，会话结束就会清除（当你关闭浏览器，会话就结束了）<br>    - loaclStorage用于持久性的本地存储数据，除非自动清除，不然有就不会过期<br>    - cookie 大小限制4k左右，每次请求新页面，cookie都会被发送出去<br>总结：<br>    - 相同：<br>        1.都有大小限制（cookie在4k左右，其他的在几兆左右）<br>        2.都用于存储少量的数据，用户信息<br>    - 差异：<br>        1.sessionStorage在会话结束后，自动清除，<br>        2.localStorage需要自动清除<br>        3.cookie可以设置有效期，有效期之后会自动清除<br>2.Sass、Scss、Less是什么？大家为什么要使用他们？<br>    &gt; 都是css的预处理器，都含有变量，方法、继承、嵌套等概念，<br>    - sass与less使用{}来区分层级嵌套<br>    - scss没有全局变量的概念<br>    特点：结构清晰，便于扩展，可以轻松的实现多层继承<br>3.闭包是什么，有什么特性，对页面有什么影响<br>    闭包能读取其他函数内部的变量的函数<br>    缺点：滥用闭包会造成内存泄露，因为闭包会把引用的变量存储起来，永远不会被释放（不会被辣鸡回收机制回收）<br>4.事件委托是什么<br>    利用事件冒泡原理，让本来有自己触发的事件，让他的父级元素代替执行</p>
 
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/05/17/hello-world/" data-id="cjx44stpz0005kwvdtws1k9h3" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2017/06/22/js经典问题汇总/" data-id="cjx8rwnru00049wvd1o6hm7oc" class="article-share-link">Share</a>
     
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+
 
 
 
@@ -95,20 +85,15 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/05/17/gallery/" class="article-nav-link">
+      <a href="/2018/06/23/MVC、MVP、MVVM/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            gallery
+            MVC、MVP、MVVM
           
         </div>
       </a>
     
-    
-      <a href="/2019/05/15/H5动画API--requestAnimationFrame/" class="article-nav-link">
-        <strong class="article-nav-caption">Old posts</strong>
-        <div class="article-nav-title">H5动画API--requestAnimationFrame</div>
-      </a>
     
   </nav>
 
@@ -144,7 +129,7 @@
 
 
 
-  1 min. read
+  3 min. read
 </section>
 
   <footer class="footer">
@@ -244,7 +229,7 @@
     <div class="widget-wrap">
       <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="120" height="300" id="resCanvas" style="width:100%">
-          <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/基础/" style="font-size: 15px;">基础</a> <a href="/tags/核心/" style="font-size: 15px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+          <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/入门/" style="font-size: 13.33px;">入门</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/核心/" style="font-size: 16.67px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
         </canvas>
       </div>
     </div>
@@ -281,5 +266,5 @@
      data-listmaxheight="240px"
      data-theme="#FF4081">
 </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"80% 100%","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

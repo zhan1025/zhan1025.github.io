@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhan1025.github.io/2019/06/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2019-06-23T09:38:42.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2019/06/10/%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3-vue/</loc>
+    
+    <lastmod>2019-06-23T09:35:10.565Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2019/06/05/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E4%B8%8E%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2019-06-23T09:34:52.624Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2018/06/23/MVC%E3%80%81MVP%E3%80%81MVVM/</loc>
+    
+    <lastmod>2019-06-23T09:32:42.166Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2017/06/22/js%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</loc>
+    
+    <lastmod>2019-06-22T10:11:40.489Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2019/06/20/react%E4%B8%80%E7%AF%87%E7%A8%8D%E5%BE%AE%E6%B7%B1%E5%85%A5/</loc>
+    
+    <lastmod>2019-06-21T14:25:51.071Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhan1025.github.io/2019/06/17/react%E4%B8%80%E7%AF%87%E6%90%9E%E5%AE%9A%E5%85%A5%E9%97%A8/</loc>
     
-    <lastmod>2019-06-20T03:53:41.813Z</lastmod>
+    <lastmod>2019-06-20T14:31:23.925Z</lastmod>
     
   </url>
   
@@ -12,20 +54,6 @@
     <loc>https://zhan1025.github.io/2019/06/16/hexo%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
     
     <lastmod>2019-06-16T03:33:48.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhan1025.github.io/2019/06/14/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
-    
-    <lastmod>2019-06-15T16:37:16.600Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhan1025.github.io/2019/06/10/%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3-vue/</loc>
-    
-    <lastmod>2019-06-15T14:24:44.742Z</lastmod>
     
   </url>
   
@@ -54,13 +82,6 @@
     <loc>https://zhan1025.github.io/2019/06/05/vue%E8%BF%9B%E9%98%B6vue-router/</loc>
     
     <lastmod>2019-06-06T10:36:34.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhan1025.github.io/2019/06/05/%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD%E4%B8%8E%E7%BB%84%E4%BB%B6%E5%A4%8D%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2019-06-05T16:54:50.322Z</lastmod>
     
   </url>
   
@@ -96,13 +117,6 @@
     <loc>https://zhan1025.github.io/2019/05/15/H5%E5%8A%A8%E7%94%BBAPI--requestAnimationFrame/</loc>
     
     <lastmod>2019-05-28T05:48:28.285Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhan1025.github.io/2019/05/17/hello-world/</loc>
-    
-    <lastmod>2019-05-27T13:15:30.245Z</lastmod>
     
   </url>
   
