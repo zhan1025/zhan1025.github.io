@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhan1025.github.io/2018/06/26/react-saga/</loc>
+    
+    <lastmod>2019-06-26T08:13:11.707Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhan1025.github.io/2019/06/23/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86/</loc>
     
-    <lastmod>2019-06-23T09:38:42.788Z</lastmod>
+    <lastmod>2019-06-26T07:37:34.185Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhan1025.github.io/2019/05/29/vue%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%803/</loc>
+    
+    <lastmod>2019-06-23T10:19:11.564Z</lastmod>
     
   </url>
   
@@ -82,13 +96,6 @@
     <loc>https://zhan1025.github.io/2019/06/05/vue%E8%BF%9B%E9%98%B6vue-router/</loc>
     
     <lastmod>2019-06-06T10:36:34.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhan1025.github.io/2019/05/29/vue%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%803/</loc>
-    
-    <lastmod>2019-06-04T16:39:01.445Z</lastmod>
     
   </url>
   

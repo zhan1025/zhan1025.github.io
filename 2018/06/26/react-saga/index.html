@@ -13,6 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
+    react-saga |
     
     Open Your Eyes</title>
   
@@ -36,50 +37,17 @@
 <body>
 
 <main class="content">
-  <section class="jumbotron">
-  <div class="video">
-    
-      <div class="video-frame">
-        <img src="/images/ocean/overlay-hero.png" alt="Decorative image frame">
-      </div>
-    
-    <div class="video-media">
-      <video playsinline autoplay loop muted data-autoplay poster="/images/ocean/ocean.png" x5-video-player-type="h5">
-        <source src="/images/ocean/ocean.mp4" type="video/mp4">
-        <source src="/images/ocean/ocean.ogv" type="video/ogg">
-        <source src="/images/ocean/ocean.webm" type="video/webm">
-        <p>Your user agent does not support the HTML5 Video element.</p>
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="video-inner text-center text-white">
-      <h1><a href="/">Open Your Eyes</a></h1>
-      <p>think &amp; action</p>
-      <div><img src="/images/hexo-inverted.svg" class="brand" alt="Open Your Eyes"></div>
-    </div>
-    <div class="video-learn-more">
-      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
-    </div>
-  </div>
-</section>
-
-<div id="landingpage">
   <section class="outer">
-
-  <article class="articles">
-    
-    
-      
-        <article id="post-react-saga" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-react-saga" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h2 itemprop="name">
-      <a class="article-title" href="/2018/06/26/react-saga/">react-saga</a>
-    </h2>
+    <h1 class="article-title" itemprop="name">
+      react-saga
+    </h1>
   
 
       </header>
@@ -132,6 +100,51 @@
 
 
   
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/05/15/H5动画API--requestAnimationFrame/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            H5动画API--requestAnimationFrame
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/06/23/MVC、MVP、MVVM/" class="article-nav-link">
+        <strong class="article-nav-caption">Old posts</strong>
+        <div class="article-nav-title">MVC、MVP、MVVM</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '9eaf0846b3c1cf65273a',
+      clientSecret: '9414cb0e9167f67fc5276d1e51a1140139891847',
+      repo: 'talk',
+      owner: 'zhan1025',
+      admin: ['zhan1025'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: true,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
 
   
 
@@ -139,127 +152,8 @@
 
 
 
-      
-        <article id="post-MVC、MVP、MVVM" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2018/06/23/MVC、MVP、MVVM/">MVC、MVP、MVVM</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2018/06/23/MVC、MVP、MVVM/" class="article-date">
-  <time datetime="2018-06-23T02:41:46.000Z" itemprop="datePublished">2018-06-23</time>
-</a>
-
-        
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="MVC-Model-View-Controller"><a href="#MVC-Model-View-Controller" class="headerlink" title="MVC(Model View Controller):"></a>MVC(Model View Controller):</h2><pre><code>视图（view）： 用户界面</code></pre>
-      
-    </div>
-    <a data-url="https://zhan1025.github.io/2018/06/23/MVC、MVP、MVVM/" data-id="cjxcyq7q50002cwvdm25m7h0m" class="article-share-link">Share</a>
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVP/">MVP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li></ul>
-
-
-
-
-</div>
-
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-js经典问题汇总" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2017/06/22/js经典问题汇总/">js经典问题汇总（持续更新...）</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2017/06/22/js经典问题汇总/" class="article-date">
-  <time datetime="2017-06-22T02:00:32.000Z" itemprop="datePublished">2017-06-22</time>
-</a>
-
-        
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>捡空余时间，写点笔记</p>
-<p>1.描述一下cookies、sessionStorage和loaclStorage区别<br>    - sessionStorage用于本地存储一个会话的数据，会话结束就会清除（当你关闭浏览器，会话就结束了）<br>    - loaclStorage用于持久性的本地存储数据，除非自动清除，不然有就不会过期<br>    - cookie 大小限制4k左右，每次请求新页面，cookie都会被发送出去<br>总结：<br>    - 相同：<br>        1.都有大小限制（cookie在4k左右，其他的在几兆左右）<br>        2.都用于存储少量的数据，用户信息<br>    - 差异：<br>        1.sessionStorage在会话结束后，自动清除，<br>        2.localStorage需要自动清除<br>        3.cookie可以设置有效期，有效期之后会自动清除<br>2.Sass、Scss、Less是什么？大家为什么要使用他们？<br>    &gt; 都是css的预处理器，都含有变量，方法、继承、嵌套等概念，<br>    - sass与less使用{}来区分层级嵌套<br>    - scss没有全局变量的概念<br>    特点：结构清晰，便于扩展，可以轻松的实现多层继承<br>3.闭包是什么，有什么特性，对页面有什么影响<br>    闭包能读取其他函数内部的变量的函数<br>    缺点：滥用闭包会造成内存泄露，因为闭包会把引用的变量存储起来，永远不会被释放（不会被辣鸡回收机制回收）<br>4.事件委托是什么<br>    利用事件冒泡原理，让本来有自己触发的事件，让他的父级元素代替执行</p>
-
-      
-    </div>
-    <a data-url="https://zhan1025.github.io/2017/06/22/js经典问题汇总/" data-id="cjxcyq7qe0006cwvdgomqa8u8" class="article-share-link">Share</a>
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
-
-
-
-
-</div>
-
-
-  
-
-  
-
-</article>
-
-
-
-      
-  </article>
-  
-  
-    <nav class="page-nav">
-      
-      <a class="extend prev" rel="prev" href="/page/5/">Prev page</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
-  
-
+  3 min. read
 </section>
-
-</div>
 
   <footer class="footer">
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">

@@ -10,8 +10,8 @@
     <url>%2F2019%2F06%2F20%2Freact%E4%B8%80%E7%AF%87%E7%A8%8D%E5%BE%AE%E6%B7%B1%E5%85%A5%2F</url>
     <content type="text"><![CDATA[setState( Object | fn, callback ) 在一个流程中（render3完成，页面dom得到更新，叫一个数据更新流程）多次setState，会合并为一个setState来调用，合并机制非常好，但是会出现问题 3.利用第一个参数函数形式解决 123456先前的statethis.setState(（prevState）=&gt; &#123;return &#123; &#125;&#125;)等同||this.setState(（prevState）=&gt; (&#123;&#125;)) 4.列表渲染key的重要性，是给到react内部去优化性能key在兄弟节点中是必须的 4.1. 虚拟dom的比对叫做 diff算法 不同的根节点的树，就不需要比较了，直接以新的替换 特性： 同级比较1.1 同级元素类型变了，那么就不再比较子元素，直接将老的树销毁，生成新的树替换1.2 同级元素相同，这时再递归比较子元素 子元素比较 react中支持key属性，当子元素拥有key是，react使用key来匹配原有数上的子元素以及最新树上的子元素，使用key来匹配，使得效率变得更高 # react实现虚拟dom就是一段，jsx语法对象 1.受控组件需要使用state数据去控制这个form元素 2.非受控组件不需要使用state数据去控制的表单元素 非受控组件input的默认值，用defaultValue={this.state.value} chexkoutbox 用defaultChecked # 生命周期三大阶段1.挂载 constructor（）在组件实例化的时候触发 不能在里面setState 1. 调用父类的z构造函数super（props） 2. 初始化数据 this.state = {} 3.绑定this指向 render（）渲染 默认进来一次，后续如果有更新会再次触发 使用setState要小心 componentDidMount() 组件挂载完成 1. 获取异步数据 2. 获取dom元素 componentWillMount()即将过期， 不要使用 static getDerivedStateFromProps ( props,state) 能够根据props数来设置state数据 1. 默认render之前调用一次 2. 后续数据有变化，重新render之前又会调用 3. 不能使用 this.setState 4. 需要 return {} | null 如果是2.更新 static getDerivedStateFromProps shouldComponentUpdate （nextProps， nextState） 这个组件是否是应该进行渲染？ 做性能优化 一般不去用他，推荐使用 PureComponent 如果使用了它，就不能再使用PureConponent ！ 需要返回中，布尔值，如果返回true -&gt; 更新生命周期函数往下执行，false -&gt; 不更新生命周期不往下执行 render getSnapshotBeforeUpdate(prevProps, prevState) 真实DOM渲染完成的前一刻触发此生命周期的任何返回值将作为参数传递给 componentDidUpdate()。 componentDidUpdate(prevProps, prevState, snapshot) snapshot 是 getSnapshotBeforeUpdate 返回的值 不能随意的去使用网络请求和setState。 除非加上了判断条件 3.销毁conmponentWillUnmounted 组件之间通信 父 -&gt; 子 props 子-&gt; 父 传递方法给子组件 兄-&gt; 弟 3.1.状态提升 3.2.使用第三方的中央事件管理器 （pubsub） 3.3.context Context 提供了一个无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法。 let MyContest = React.createContext()创建一个context对象 MyContext.Provider 组件 供应商 MyContext.Consumer 组件 消费者， 开始结束标签内需要使用一个**函数**来return jsx，而这个函数接收一个参数，参数就是供应商的value数据 一.使用以上三步骤 ​ 二.在消费者组件使用 static ContextType = MyContext this.context接收数据 ​ 3.4.自己写一个bus 4.react官方提供的状态管理器 flux 第三方： Redux javascript的状态管理器，跟Vuex很相似 &gt; 单一数据源，整个应用的state被存储在一颗object tree中 1. 在redux的流程中任何时刻state，都不会发生变化，不能直接改变 2. state的改变不是改变原来的state，是生成了一个新的state替换旧的state， 3. Reducers不能改变state，生成一个新的state 去return（纯函数的概念） 纯函数：任何时候都不会修改参数，有相同的入参，一定会产生相同的出参（每次传入相同的参数，都会出现相同的返回值） react组件标签之间的内容不会自动渲染出来，会在props中传入children ref的三种使用手法Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法中创建的 React 元素 ref=”myUL” this.refs.myUL ref={(target)=&gt;{this.myUL = target}} this.myUL 构造函数中定义 this.myUL = React.createRef()ref={this.myUL} 在元素标签上设置this.myUL.current 获取元素在组件标签内写内容，利用改组件的{this.props.children}来实现相vue中solt功能]]></content>
       <tags>
-        <tag>入门</tag>
         <tag>react</tag>
+        <tag>入门</tag>
       </tags>
   </entry>
   <entry>
@@ -126,6 +126,17 @@
       <tags>
         <tag>js</tag>
         <tag>canvas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[react-saga]]></title>
+    <url>%2F2018%2F06%2F26%2Freact-saga%2F</url>
+    <content type="text"><![CDATA[​ 首先中间件有很多，你可以把他当作一个函数，或者是说是一个模块，想必你用过 react-thunk ，react-logger…,那么thunk也可以完成saga的工作，只能说有的人喜欢挑战，就是要用saga主要是想让saga来处理异步请求操作 sagasaga自述 安装saga yarn add react-saga 在你的redux主仓库中添加， 123456789101112131415161718192021// 2. 引入saga 引入saga的主要处理文件import createSagaMiddleware from 'redux-saga';// @是配了别名的，写的路径就是你saga文件的路径import todoSaga from '@/views/TodoList/store/todoSaga';// 3.创建saga中间件const sagaMiddleware = createSagaMiddleware();...// 仓库暴露出去的东西export default createStore( combineReducers(&#123; todo: todoReducer &#125;), composeEnhancers( // 使用上中间件 applyMiddleware(sagaMiddleware)));// run todoSagasagaMiddleware.run(todoSaga) 在仓库中（我这边是组件的小仓库）创建saga文件 1234567891011121314151617181920212223242526// 注意这个，这里是saga提供的一些方法import &#123; takeEvery, put &#125; from 'redux-saga/effects';import &#123; FETCH_TODO_LIST &#125; from './actionTypes';import &#123; initTodoListAction &#125; from './actionCreates';// 处理一个异步请求function* init () &#123; let response = yield fetch('http://localhost:3001/todoList'); let res = yield response.json(); yield put (initTodoListAction(res));&#125; // 暴露一个方法const todoSaga = function *() &#123; // takeEvery('action type',要做的事情) // 监听/拦截到这个动作，进行操作 yield takeEvery(FETCH_TODO_LIST, init);&#125;export default todoSaga;/** *这边的saga作为中间件利用takeEvery拦截到组件（ui组件发出的action）， *对action.type做拦截，然后在这个文件里，做异步请求。在请求完成后再将数据通过 *saga提供的方法put===store.dispatch *派发了以后，会进入到reducer中，对仓库里的数据进行一些操作 */ 熟能生巧！]]></content>
+      <tags>
+        <tag>react</tag>
+        <tag>saga</tag>
+        <tag>redux</tag>
+        <tag>中间件</tag>
       </tags>
   </entry>
   <entry>
