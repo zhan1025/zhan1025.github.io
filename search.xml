@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[generator方法‘ hexo n generator方法‘]]></title>
+    <url>%2F2019%2F06%2F26%2Fgenerator%E6%96%B9%E6%B3%95%E2%80%98hexo-n-generator%E6%96%B9%E6%B3%95%E2%80%98-1%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546function step1 (success) &#123; setTimeout(() =&gt; &#123; console.log('step1'); success(); &#125;, 1000);&#125;function step2 (success) &#123; setTimeout(() =&gt; &#123; console.log('step2'); success(); &#125;, 1000);&#125;function step3 (success) &#123; setTimeout(() =&gt; &#123; console.log('step3'); success(); &#125;, 1000);&#125;function* main () &#123; // generator 配合yield和next来实现异步编程， // yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个 yield step1; yield step2; yield step3;&#125;function run (fn) &#123; /** * 在fn，也就是main这个generator函数执行完后，会返回一个generator * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125; * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行） */let gen=fn() function next ()&#123; let result = gen.next(); console.log(result) if (result.done) return result.value(next); &#125; next();&#125;run (main)]]></content>
+      <tags>
+        <tag>ES6</tag>
+        <tag>generator</tag>
+        <tag>异步编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[深入了解vue响应式原理]]></title>
     <url>%2F2019%2F06%2F23%2F%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3vue%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[]]></content>

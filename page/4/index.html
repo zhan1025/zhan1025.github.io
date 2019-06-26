@@ -67,6 +67,74 @@
     
     
       
+        <article id="post-vue进阶vue-router" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/06/05/vue进阶vue-router/">vue-router</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/06/05/vue进阶vue-router/" class="article-date">
+  <time datetime="2019-06-04T16:30:32.000Z" itemprop="datePublished">2019-06-05</time>
+</a>
+
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <a class="article-gallery-img" href="/2019/06/05/vue进阶vue-router/" rel="gallery_cjxd7blzc002fi4vdueiy27ne">
+            <img src="/images/router.png" itemprop="image">
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+      
+        <h2 id="前端路由-vue-router"><a href="#前端路由-vue-router" class="headerlink" title="前端路由  vue-router"></a>前端路由  vue-router</h2>
+        
+          <a class="article-more-link" href="/2019/06/05/vue进阶vue-router/">Read More...</a>
+        
+      
+    </div>
+    <a data-url="https://zhan1025.github.io/2019/06/05/vue进阶vue-router/" data-id="cjxd7blzc002fi4vdueiy27ne" class="article-share-link">Share</a>
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/router/">router</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/核心/">核心</a></li></ul>
+
+
+
+
+</div>
+
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-vue入门基础3" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -104,7 +172,7 @@
         
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/05/29/vue入门基础3/" data-id="cjxcyq7qt000hcwvdy1niu1qc" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/05/29/vue入门基础3/" data-id="cjxd7blxi000ii4vddrrxiaha" class="article-share-link">Share</a>
     
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
 
@@ -162,67 +230,8 @@
         
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/05/28/vue入门基础1，助解原码/" data-id="cjxcyq7qs000fcwvd7ao9alf7" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/05/28/vue入门基础1，助解原码/" data-id="cjxd7blxc000di4vdd9rdk0vj" class="article-share-link">Share</a>
     
-
-
-
-</div>
-
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-vue入门基础2" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/05/28/vue入门基础2/">vue入门基础2</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/05/28/vue入门基础2/" class="article-date">
-  <time datetime="2019-05-28T02:57:14.000Z" itemprop="datePublished">2019-05-28</time>
-</a>
-
-        
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <h2 id="条件渲染分组，v-if和v-for一起使用"><a href="#条件渲染分组，v-if和v-for一起使用" class="headerlink" title="条件渲染分组，v-if和v-for一起使用"></a>条件渲染分组，v-if和v-for一起使用</h2><blockquote>
-<p>对上一篇中v-if系列的一个补充拓展<br>1.分组渲染</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--最后的渲染效果不会渲染temlate标签，该标签方便我们进行分组渲染，而不会然css样式出现无效--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Paragraph 1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Paragraph 2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-link" href="/2019/05/28/vue入门基础2/">Read More...</a>
-        
-      
-    </div>
-    <a data-url="https://zhan1025.github.io/2019/05/28/vue入门基础2/" data-id="cjxcyq7qp000dcwvdfqxeet7k" class="article-share-link">Share</a>
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
-
 
 
 
@@ -243,7 +252,7 @@
   
     <nav class="page-nav">
       
-      <a class="extend prev" rel="prev" href="/page/3/">Prev page</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next page</a>
+      <a class="extend prev" rel="prev" href="/page/3/">Prev page</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next page</a>
     </nav>
   
 
@@ -348,7 +357,7 @@
     <div class="widget-wrap">
       <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="120" height="300" id="resCanvas" style="width:100%">
-          <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/saga/" style="font-size: 10px;">saga</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/入门/" style="font-size: 13.33px;">入门</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/核心/" style="font-size: 16.67px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+          <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/generator/" style="font-size: 10px;">generator</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/saga/" style="font-size: 10px;">saga</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/入门/" style="font-size: 13.33px;">入门</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/核心/" style="font-size: 16.67px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
         </canvas>
       </div>
     </div>

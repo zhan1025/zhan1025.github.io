@@ -70,6 +70,62 @@
     
     
       
+        <article id="post-generator方法‘hexo-n-generator方法‘-1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/06/26/generator方法‘hexo-n-generator方法‘-1/">generator方法‘ hexo n generator方法‘</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/06/26/generator方法‘hexo-n-generator方法‘-1/" class="article-date">
+  <time datetime="2019-06-26T12:04:07.000Z" itemprop="datePublished">2019-06-26</time>
+</a>
+
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step1</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step1'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step2</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step2'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step3</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step3'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// generator 配合yield和next来实现异步编程，</span></span><br><span class="line">  <span class="comment">// yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">yield</span> step1;</span><br><span class="line">  <span class="keyword">yield</span> step2;</span><br><span class="line">  <span class="keyword">yield</span> step3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 在fn，也就是main这个generator函数执行完后，会返回一个generator</span></span><br><span class="line"><span class="comment">   * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125;</span></span><br><span class="line"><span class="comment">   * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行）</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="keyword">let</span> gen=fn()</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">next</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = gen.next();</span><br><span class="line">    <span class="built_in">console</span>.log(result)</span><br><span class="line">    <span class="keyword">if</span> (result.done) <span class="keyword">return</span></span><br><span class="line">    result.value(next);</span><br><span class="line">  &#125;</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line">run (main)</span><br></pre></td></tr></table></figure>
+
+<p><img src="%5Cimages%5Cgenerator.png" alt="输出"></p>
+
+      
+    </div>
+    <a data-url="https://zhan1025.github.io/2019/06/26/generator方法‘hexo-n-generator方法‘-1/" data-id="cjxd7blx00003i4vdsqt84v6h" class="article-share-link">Share</a>
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/generator/">generator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步编程/">异步编程</a></li></ul>
+
+
+
+
+</div>
+
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-深入了解vue响应式原理" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -102,11 +158,11 @@
 
       
         
-    <div id="aplayer-CDSIfqfF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="25718007" data-server="song" data-type="mode:circulation" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-RKrNfABK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="25718007" data-server="song" data-type="mode:circulation" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/06/23/深入了解vue响应式原理/" data-id="cjxcyq7qx000mcwvdavqo1l9j" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/06/23/深入了解vue响应式原理/" data-id="cjxd7blxl000li4vdb3x302vx" class="article-share-link">Share</a>
     
 
 
@@ -251,70 +307,9 @@ MyContext.Consumer 组件  消费者， 开始结束标签内需要使用一个*
 
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/06/20/react一篇稍微深入/" data-id="cjxcyq7qj000acwvd3srqh218" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/06/20/react一篇稍微深入/" data-id="cjxd7blx8000ai4vd1g2m6w59" class="article-share-link">Share</a>
     
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li></ul>
-
-
-
-
-</div>
-
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-react一篇搞定入门" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/06/17/react一篇搞定入门/">react一篇搞定入门</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/06/17/react一篇搞定入门/" class="article-date">
-  <time datetime="2019-06-17T13:56:20.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-
-        
-      </div>
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>1.React 认为渲染逻辑本质上与其他 UI 逻辑内在耦合，比如，在 UI 中需要绑定处理事件、在某些时刻状态发生变化时需要通知到 UI，以及需要在 UI 中展示准备好的数据</p>
-<p>2.在 JavaScript 代码中将 JSX 和 UI 放在一起时，会在视觉上有辅助作用。它还可以使 React 显示更多有用的错误和警告消息。</p>
-<p>react  2013.5开源 （轻量级视图层库 、虚拟dom）</p>
-<blockquote>
-<p>对与虚拟dom，简单说就是，在render时 return出来的那段jsx，是一个js对象，称之为虚拟dom，<br>它没有直接渲染到web页面上，react 通过diff算法对现象产生的虚拟dom和之前的比较，比较出最小的dom改变，然后去渲染web页面<br>vue  2015</p>
-</blockquote>
-        
-          <a class="article-more-link" href="/2019/06/17/react一篇搞定入门/">Read More...</a>
-        
-      
-    </div>
-    <a data-url="https://zhan1025.github.io/2019/06/17/react一篇搞定入门/" data-id="cjxcyq7qh0009cwvdwxb4b7yn" class="article-share-link">Share</a>
-    
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsx/">jsx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/入门/">入门</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/核心概念/">核心概念</a></li></ul>
 
 
 
@@ -336,7 +331,7 @@ MyContext.Consumer 组件  消费者， 开始结束标签内需要使用一个*
   
     <nav class="page-nav">
       
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next page</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next page</a>
     </nav>
   
 
@@ -441,7 +436,7 @@ MyContext.Consumer 组件  消费者， 开始结束标签内需要使用一个*
     <div class="widget-wrap">
       <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="120" height="300" id="resCanvas" style="width:100%">
-          <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/saga/" style="font-size: 10px;">saga</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/入门/" style="font-size: 13.33px;">入门</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/核心/" style="font-size: 16.67px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
+          <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/diy/" style="font-size: 10px;">diy</a> <a href="/tags/generator/" style="font-size: 10px;">generator</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 13.33px;">js</a> <a href="/tags/jsx/" style="font-size: 10px;">jsx</a> <a href="/tags/react/" style="font-size: 13.33px;">react</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/saga/" style="font-size: 10px;">saga</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/中间件/" style="font-size: 10px;">中间件</a> <a href="/tags/入门/" style="font-size: 13.33px;">入门</a> <a href="/tags/基础/" style="font-size: 16.67px;">基础</a> <a href="/tags/异步编程/" style="font-size: 10px;">异步编程</a> <a href="/tags/核心/" style="font-size: 16.67px;">核心</a> <a href="/tags/核心概念/" style="font-size: 10px;">核心概念</a> <a href="/tags/深浅克隆/" style="font-size: 10px;">深浅克隆</a> <a href="/tags/深浅拷贝/" style="font-size: 10px;">深浅拷贝</a> <a href="/tags/跨域请求/" style="font-size: 10px;">跨域请求</a> <a href="/tags/进阶/" style="font-size: 10px;">进阶</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/音乐播放器/" style="font-size: 10px;">音乐播放器</a>
         </canvas>
       </div>
     </div>
