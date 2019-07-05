@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[generator方法‘ hexo n generator方法‘]]></title>
-    <url>%2F2019%2F06%2F26%2Fgenerator%E6%96%B9%E6%B3%95%E2%80%98hexo-n-generator%E6%96%B9%E6%B3%95%E2%80%98-1%2F</url>
-    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546function step1 (success) &#123; setTimeout(() =&gt; &#123; console.log('step1'); success(); &#125;, 1000);&#125;function step2 (success) &#123; setTimeout(() =&gt; &#123; console.log('step2'); success(); &#125;, 1000);&#125;function step3 (success) &#123; setTimeout(() =&gt; &#123; console.log('step3'); success(); &#125;, 1000);&#125;function* main () &#123; // generator 配合yield和next来实现异步编程， // yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个 yield step1; yield step2; yield step3;&#125;function run (fn) &#123; /** * 在fn，也就是main这个generator函数执行完后，会返回一个generator * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125; * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行） */let gen=fn() function next ()&#123; let result = gen.next(); console.log(result) if (result.done) return result.value(next); &#125; next();&#125;run (main)]]></content>
+    <title><![CDATA[generator方法]]></title>
+    <url>%2F2019%2F06%2F26%2Fgenerator%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[再简单复习一下，generator 12345678910111213141516171819202122232425262728293031323334353637383940414243444546function step1 (success) &#123; setTimeout(() =&gt; &#123; console.log('step1'); success(); &#125;, 1000);&#125;function step2 (success) &#123; setTimeout(() =&gt; &#123; console.log('step2'); success(); &#125;, 1000);&#125;function step3 (success) &#123; setTimeout(() =&gt; &#123; console.log('step3'); success(); &#125;, 1000);&#125;function* main () &#123; // generator 配合yield和next来实现异步编程， // yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个 yield step1; yield step2; yield step3;&#125;function run (fn) &#123; /** * 在fn，也就是main这个generator函数执行完后，会返回一个generator * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125; * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行） */let gen=fn() function next ()&#123; let result = gen.next(); console.log(result) if (result.done) return result.value(next); &#125; next();&#125;run (main)]]></content>
       <tags>
         <tag>ES6</tag>
         <tag>generator</tag>
@@ -47,7 +47,7 @@
   <entry>
     <title><![CDATA[跨域解决-vue]]></title>
     <url>%2F2019%2F06%2F10%2F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3-vue%2F</url>
-    <content type="text"><![CDATA[待更新…]]></content>
+    <content type="text"><![CDATA[待更新… devServer.proxy Type: string | Object 如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。这个问题可以通过 vue.config.js 中的 devServer.proxy 选项来配置。 devServer.proxy 可以是一个指向开发环境 API 服务器的字符串： 12345module.exports = &#123; devServer: &#123; proxy: 'http://localhost:4000' &#125;&#125; 这会告诉开发服务器将任何未知请求 (没有匹配到静态文件的请求) 代理到http://localhost:4000。 如果你想要更多的代理控制行为，也可以使用一个 path: options 成对的对象。完整的选项可以查阅 http-proxy-middleware 。 1234567891011121314module.exports = &#123; devServer: &#123; proxy: &#123; '/api': &#123; target: '&lt;url&gt;', ws: true, changeOrigin: true &#125;, '/foo': &#123; target: '&lt;other_url&gt;' &#125; &#125; &#125;&#125;]]></content>
       <tags>
         <tag>vue</tag>
         <tag>跨域请求</tag>

@@ -13,9 +13,9 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    generator方法‘ hexo n generator方法‘ |
+    generator方法 |
     
-    Open Your Eyes</title>
+    Lemon</title>
   
     <link rel="shortcut icon" href="/favicon.ico">
   
@@ -35,7 +35,7 @@
 
 <main class="content">
   <section class="outer">
-  <article id="post-generator方法‘hexo-n-generator方法‘-1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-generator方法" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -43,7 +43,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      generator方法‘ hexo n generator方法‘
+      generator方法
     </h1>
   
 
@@ -52,7 +52,7 @@
 
     
       <div class="article-meta">
-        <a href="/2019/06/26/generator方法‘hexo-n-generator方法‘-1/" class="article-date">
+        <a href="/2019/06/26/generator方法/" class="article-date">
   <time datetime="2019-06-26T12:04:07.000Z" itemprop="datePublished">2019-06-26</time>
 </a>
 
@@ -66,13 +66,17 @@
       
 
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step1</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step1'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step2</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step2'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step3</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step3'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// generator 配合yield和next来实现异步编程，</span></span><br><span class="line">  <span class="comment">// yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">yield</span> step1;</span><br><span class="line">  <span class="keyword">yield</span> step2;</span><br><span class="line">  <span class="keyword">yield</span> step3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 在fn，也就是main这个generator函数执行完后，会返回一个generator</span></span><br><span class="line"><span class="comment">   * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125;</span></span><br><span class="line"><span class="comment">   * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行）</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="keyword">let</span> gen=fn()</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">next</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = gen.next();</span><br><span class="line">    <span class="built_in">console</span>.log(result)</span><br><span class="line">    <span class="keyword">if</span> (result.done) <span class="keyword">return</span></span><br><span class="line">    result.value(next);</span><br><span class="line">  &#125;</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line">run (main)</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>再简单复习一下，generator</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step1</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step1'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step2</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step2'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">step3</span> (<span class="params">success</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'step3'</span>);</span><br><span class="line">    success();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">main</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// generator 配合yield和next来实现异步编程，</span></span><br><span class="line">  <span class="comment">// yield让函数等待上一个执行完后再执行，next（）让执行指针跳到下下一个</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">yield</span> step1;</span><br><span class="line">  <span class="keyword">yield</span> step2;</span><br><span class="line">  <span class="keyword">yield</span> step3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 在fn，也就是main这个generator函数执行完后，会返回一个generator</span></span><br><span class="line"><span class="comment">   * .next后会返回下一个yield等待执行的信息，一个对象&#123;done: false value: ƒ step1()&#125;</span></span><br><span class="line"><span class="comment">   * 那么我们通过，这个对象中的done来判断，这个generator是否执行完成（false表示后面还有一不代码要执行）</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"><span class="keyword">let</span> gen=fn()</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">next</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = gen.next();</span><br><span class="line">    <span class="built_in">console</span>.log(result)</span><br><span class="line">    <span class="keyword">if</span> (result.done) <span class="keyword">return</span></span><br><span class="line">    result.value(next);</span><br><span class="line">  &#125;</span><br><span class="line">  next();</span><br><span class="line">&#125;</span><br><span class="line">run (main)</span><br></pre></td></tr></table></figure>
 
-<p><img src="%5Cimages%5Cgenerator.png" alt="输出"></p>
+<p><img src="./images/generator.png" alt="输出"></p>
 
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/06/26/generator方法‘hexo-n-generator方法‘-1/" data-id="cjxd7blx00003i4vdsqt84v6h" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/06/26/generator方法/" data-id="cjxq6d2qq000278vdplvvs645" class="article-share-link">Share</a>
     
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/generator/">generator</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步编程/">异步编程</a></li></ul>
 
@@ -147,7 +151,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2019 Open Your Eyes</li>
+      <li>&copy; 2019 Lemon</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
     </ul>
@@ -166,7 +170,7 @@
 <nav class="navbar">
   
     <div class="logo">
-      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+      <a href="/"><img src="/favicon.ico" alt="Lemon"></a>
     </div>
   
   <ul class="nav nav-main">

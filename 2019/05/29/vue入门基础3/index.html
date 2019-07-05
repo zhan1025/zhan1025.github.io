@@ -15,7 +15,7 @@
   <title>
     vue基础3 |
     
-    Open Your Eyes</title>
+    Lemon</title>
   
     <link rel="shortcut icon" href="/favicon.ico">
   
@@ -113,7 +113,7 @@
   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">  &lt;script&gt;</span><br><span class="line"><span class="comment">// 父组件</span></span><br><span class="line">Vue.component(<span class="string">'father'</span>,&#123;</span><br><span class="line">  template:<span class="string">'#father'</span>,</span><br><span class="line">  data()&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      sonName:<span class="string">'李四'</span>,</span><br><span class="line">      sonSex:<span class="string">'男'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    <span class="comment">// 与子通信方法</span></span><br><span class="line">    <span class="comment">//接收子传递的信息</span></span><br><span class="line">    fn(payload)&#123;</span><br><span class="line">      <span class="keyword">this</span>.sonName=payload.name;</span><br><span class="line">      <span class="keyword">this</span>.sonSex=payload.sex;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line">Vue.component(<span class="string">'son'</span>,&#123;</span><br><span class="line">  template:<span class="string">'#child'</span>,</span><br><span class="line">  props:[<span class="string">'name'</span>,<span class="string">'sex'</span>],</span><br><span class="line">  methods:&#123;</span><br><span class="line">    tran(str)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">      <span class="keyword">this</span>.name=<span class="string">'李云海'</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    tran2(obj)&#123;</span><br><span class="line">      <span class="comment">// 子于父通信，触发父给的自定义事件msg，this.$emit('事件名'，参数)</span></span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">'msg'</span>,obj);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      el:<span class="string">'#app'</span></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// 子要与父通信，通过，父给设的自定义事件this.$emit()触发自定义方法</span></span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/05/29/vue入门基础3/" data-id="cjxd7blxi000ii4vddrrxiaha" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/05/29/vue入门基础3/" data-id="cjxq6d2rw000p78vdok40rq0v" class="article-share-link">Share</a>
     
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
 
@@ -197,7 +197,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2019 Open Your Eyes</li>
+      <li>&copy; 2019 Lemon</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
     </ul>
@@ -216,7 +216,7 @@
 <nav class="navbar">
   
     <div class="logo">
-      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+      <a href="/"><img src="/favicon.ico" alt="Lemon"></a>
     </div>
   
   <ul class="nav nav-main">

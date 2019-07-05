@@ -15,7 +15,7 @@
   <title>
     跨域解决-vue |
     
-    Open Your Eyes</title>
+    Lemon</title>
   
     <link rel="shortcut icon" href="/favicon.ico">
   
@@ -70,10 +70,22 @@
 
       
         <h2 id="待更新…"><a href="#待更新…" class="headerlink" title="待更新…"></a>待更新…</h2>
-    <div id="aplayer-AwIDMSrg" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="undefined" data-server="undefined" data-type="undefined" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-usXMyOpy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="undefined" data-server="undefined" data-type="undefined" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+
+<h3 id="devServer-proxy"><a href="#devServer-proxy" class="headerlink" title="devServer.proxy"></a>devServer.proxy</h3><ul>
+<li><p>Type: <code>string | Object</code></p>
+<p>如果你的前端应用和后端 API 服务器没有运行在同一个主机上，你需要在开发环境下将 API 请求代理到 API 服务器。这个问题可以通过 <code>vue.config.js</code> 中的 <code>devServer.proxy</code> 选项来配置。</p>
+<p><code>devServer.proxy</code> 可以是一个指向开发环境 API 服务器的字符串：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    proxy: <span class="string">'http://localhost:4000'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这会告诉开发服务器将任何未知请求 (没有匹配到静态文件的请求) 代理到<code>http://localhost:4000</code>。</p>
+<p>如果你想要更多的代理控制行为，也可以使用一个 <code>path: options</code> 成对的对象。完整的选项可以查阅 <a href="https://github.com/chimurai/http-proxy-middleware#proxycontext-config" target="_blank" rel="noopener">http-proxy-middleware</a> 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">'/api'</span>: &#123;</span><br><span class="line">        target: <span class="string">'&lt;url&gt;'</span>,</span><br><span class="line">        ws: <span class="literal">true</span>,</span><br><span class="line">        changeOrigin: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">'/foo'</span>: &#123;</span><br><span class="line">        target: <span class="string">'&lt;other_url&gt;'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
-    <a data-url="https://zhan1025.github.io/2019/06/10/跨域解决-vue/" data-id="cjxd7blxm000ni4vdpp6kdpt9" class="article-share-link">Share</a>
+    <a data-url="https://zhan1025.github.io/2019/06/10/跨域解决-vue/" data-id="cjxq6d2s3000z78vdxa0bey8p" class="article-share-link">Share</a>
     
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域请求/">跨域请求</a></li></ul>
 
@@ -157,7 +169,7 @@
 
     </div>
     <ul class="list-inline">
-      <li>&copy; 2019 Open Your Eyes</li>
+      <li>&copy; 2019 Lemon</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <!-- <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li> -->
     </ul>
@@ -176,7 +188,7 @@
 <nav class="navbar">
   
     <div class="logo">
-      <a href="/"><img src="/favicon.ico" alt="Open Your Eyes"></a>
+      <a href="/"><img src="/favicon.ico" alt="Lemon"></a>
     </div>
   
   <ul class="nav nav-main">
